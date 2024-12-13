@@ -1,0 +1,665 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #abeeba;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #beba;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #beba;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+    width: 25%;
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.group {
+    text-align: right;
+}
+
+.group p {
+    margin: 5px 0;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+aside {
+    width: 20%;
+    background-color: #aabeba;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+main {
+    width: 80%;
+    padding: 20px;
+}
+
+main h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-right: 40%;
+}
+
+main p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+main h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    position: relative;
+}
+
+.avatar img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    margin-top: 0px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.telegram-link {
+    margin-left: 10px;
+}
+
+.telegram-logo {
+    width: 25px;
+    height: 25px;
+}
+
+p {
+    font-size: 20px;
+}
+
+li {
+    font-size: 20px;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #555;
+}
+
+.header-up {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100%;
+}
+
+.header-info {
+    right: 100px;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-element {
+    margin-left: 50px;
+}
+
+.heading {
+    margin-left: 20px;
+}
+
+footer {
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card {
+    padding: 15px;
+    border: gray 3px solid;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-img {
+    width: auto;
+    height: 60%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.card-btn {
+    padding: 10px 20px;
+    background-color: #abeeba;
+    color: #abbeba;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.card-btn:hover {
+    background-color: green;
+    transform: translateY(-2px);
+}
+
+.card-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 15px 0;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu a:hover {
+    background-color: gray;
+    color: white;
+}
+
+.navbar {
+    background-color: #abbeba;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.navbar-menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navbar-menu li {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.navbar-menu a {
+    color: #333;
+    text-decoration: none;
+}
+
+
+.navbar-menu a:hover {
+    background-color: gray;
+    color: #000;
+    text-decoration: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: gray;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+input, button, textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+label {
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+table tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    flex: 1 1 30%;
+    max-width: 300px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.cards .card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: #abeeba;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#portfolio {
+    padding: 40px;
+    background-color: #abbeba;
+}
+
+#portfolio h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #abeeba;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item h3,
+.grid-item p {
+    margin: 0 0 10px;
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+    margin-top: auto;
+    border-radius: 5px;
+}
+
+/* Стандартные стили для больших экранов */
+@media (min-width: 1200px) {
+    /* Десктопные стили остаются как есть */
+}
+
+/* Планшеты */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+    aside {
+        width: 100%;
+        border-right: none;
+    }
+    main {
+        width: 100%;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 767px) {
+    header, nav, footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .content {
+        flex-direction: column;
+    }
+    .sidebar-menu li {
+        font-size: 16px;
+    }
+    .avatar img {
+        width: 100px;
+        height: 100px;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
+}
+
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #abeeba; /* Цвет фона */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем рамку */
+    border-radius: 50%; /* Круглая форма */
+    width: 50px; /* Ширина кнопки */
+    height: 50px; /* Высота кнопки */
+    font-size: 24px; /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении */
+    display: none; /* Скрываем кнопку по умолчанию */
+    z-index: 1000; /* Устанавливаем высокий z-index */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Тень для кнопки */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.scroll-to-top:hover {
+    background-color: #9dd5d5; /* Цвет фона при наведении */
+}
+
+.card {
+    transition: transform 0.2s; /* Анимация при наведении */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Увеличение карточки при наведении */
+}
+
+.scroll-to-top {
+    z-index: 1000; /* Убедитесь, что кнопка "Наверх" всегда на переднем плане */
+}
+
+.accordion .card {
+    border: none;
+    margin-bottom: 10px;
+}
+.accordion .card-header {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+.accordion .btn-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.accordion .btn-link:hover {
+    text-decoration: underline;
+}
+
+body {
+    padding-top: 100px; /* Отступ сверху для body */
+}
+header {
+    z-index: 1; /* Убедитесь, что header выше по слою */
+    position: relative; /* Убедитесь, что header имеет относительное позиционирование */
+}
+nav {
+    margin-top: 20px; /* Отступ сверху для nav */
+}
+.modal-body {
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: #abeeba; 
+    border-color: #abeeba; 
+}
+
+.btn-primary:hover {
+    background-color: #0e6d2d; 
+    border-color: #0e6d2d; 
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    margin: 0;
+}
+
+.close {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 20px;
+}
