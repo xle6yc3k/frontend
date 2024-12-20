@@ -1,24 +1,24 @@
-// Получаем кнопку
+// Button references
+const mainHeading = document.getElementById('mainHeading');
 const scrollToTopButton = document.getElementById('scrollToTop');
 
-// Показываем кнопку при прокрутке вниз
-window.onscroll = function() {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollToTopButton.style.display = "block";
-    } else {
-        scrollToTopButton.style.display = "none";
-    }
-};
+// Show the scroll-to-top button on scroll
+window.addEventListener('scroll', () => {
+    scrollToTopButton.style.display = 
+        (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) 
+        ? 'block' 
+        : 'none';
+});
 
-// Прокручиваем страницу вверх при клике на кнопку
-scrollToTopButton.onclick = function() {
+// Smooth scroll to top
+scrollToTopButton.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
-        behavior: 'smooth' // Плавная прокрутка
+        behavior: 'smooth'
     });
-};
+});
 
-// --- Модальные окна ---
+// --- Modals ---
 const modals = {
     modal1: document.getElementById("modal1"),
     modal2: document.getElementById("modal2"),
@@ -37,26 +37,20 @@ const closeButtons = {
     close3: modals.modal3.querySelector(".close")
 };
 
-// Открытие и закрытие модальных окон
-function openModal(modal) {
-    modal.style.display = "block";
-}
+// Open and close modal functions
+const openModal = (modal) => modal.style.display = "block";
+const closeModal = (modal) => modal.style.display = "none";
 
-function closeModal(modal) {
-    modal.style.display = "none";
-}
+// Attach event listeners for modals
+Object.entries(buttons).forEach(([key, button], index) => {
+    button.addEventListener("click", () => openModal(modals[`modal${index + 1}`]));
+});
 
-// События для открытия модальных окон
-buttons.btn1.addEventListener("click", () => openModal(modals.modal1));
-buttons.btn2.addEventListener("click", () => openModal(modals.modal2));
-buttons.btn3.addEventListener("click", () => openModal(modals.modal3));
+Object.entries(closeButtons).forEach(([key, closeButton], index) => {
+    closeButton.addEventListener("click", () => closeModal(modals[`modal${index + 1}`]));
+});
 
-// События для закрытия модальных окон
-closeButtons.close1.addEventListener("click", () => closeModal(modals.modal1));
-closeButtons.close2.addEventListener("click", () => closeModal(modals.modal2));
-closeButtons.close3.addEventListener("click", () => closeModal(modals.modal3));
-
-// Закрытие модального окна при клике вне него
+// Close modal when clicking outside of it
 Object.values(modals).forEach(modal => {
     modal.addEventListener("click", (event) => {
         if (event.target === modal) {
@@ -65,45 +59,117 @@ Object.values(modals).forEach(modal => {
     });
 });
 
-// --- Уведомления ---
+// --- Notifications ---
 const notificationContainer = document.createElement('div');
-notificationContainer.style.position = 'fixed';
-notificationContainer.style.top = '10px';
-notificationContainer.style.right = '10px';
-notificationContainer.style.backgroundColor = '#28a745';
-notificationContainer.style.color = 'white';
-notificationContainer.style.padding = '10px 20px';
-notificationContainer.style.borderRadius = '5px';
-notificationContainer.style.fontSize = '18px';
-notificationContainer.style.zIndex = '1000';
-notificationContainer.style.display = 'none';
+Object.assign(notificationContainer.style, {
+    position: 'fixed',
+    top: '10px',
+    right: '10px',
+    backgroundColor: '#28a745',
+    color: 'white',
+    padding: '10px 20px',
+    borderRadius: '5px',
+    fontSize: '18px',
+    zIndex: '1000',
+    display: 'none'
+});
 document.body.appendChild(notificationContainer);
 
-function showNotification(message) {
+const showNotification = (message) => {
     notificationContainer.textContent = message;
     notificationContainer.style.display = 'block';
     setTimeout(() => {
         notificationContainer.style.display = 'none';
-    }, 3000); 
-}
+    }, 3000);
+};
 
-// --- Обработка форм ---
+// --- Form handling ---
 const forms = {
     form1: document.getElementById("contactForm1"),
     form2: document.getElementById("contactForm2"),
     form3: document.getElementById("contactForm3")
 };
 
-function handleFormSubmit(form, formNumber, formName) {
+const handleFormSubmit = (form, formNumber, formName) => {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         console.log(`Form ${formNumber} submitted!`);
         form.reset();
         closeModal(modals[`modal${formNumber}`]);
-        showNotification(`Форма "${formName}" успешно отправлена!`);
+        showNotification(`Форма \"${formName}\" успешно отправлена!`);
     });
-}
+};
 
-handleFormSubmit(forms.form1, 1, "Сайт-визитка");
-handleFormSubmit(forms.form2, 2, "Корпоративный сайт");
-handleFormSubmit(forms.form3, 3, "Интернет-магазин");
+Object.entries(forms).forEach(([key, form], index) => {
+    handleFormSubmit(form, index + 1, form.dataset.formName || `Form ${index + 1}`);
+});
+
+// --- Heading event handlers ---
+const headingEventHandlers = {
+    click: () => alert('Вы кликнули на заголовок!'),
+    dblclick: () => alert('Вы дважды кликнули на заголовок!'),
+    mouseover: () => mainHeading.style.color = 'blue',
+    mouseout: () => mainHeading.style.color = 'black'
+};
+
+Object.entries(headingEventHandlers).forEach(([event, handler]) => {
+    mainHeading.addEventListener(event, handler);
+});
+
+// --- Second semester practices ---
+const practicesTable = document.querySelector('#practices table tbody');
+const secondSemesterButton = document.createElement('button');
+secondSemesterButton.textContent = 'Посмотреть практики второго семестра';
+secondSemesterButton.classList.add('btn', 'btn-secondary', 'mt-3');
+document.querySelector('#practices').appendChild(secondSemesterButton);
+
+const secondSemesterPractices = [
+    'Базовое бэкенд-приложение',
+    'HTTP-запросы',
+    'JSON и работа с ним',
+    'HTTP-ответы',
+    'Проектирование API',
+    'Роутинг и его настройка',
+    'NoSQL базы данных',
+    'Обеспечение авторизации и доступа пользователей',
+    'Работа сторонних сервисов уведомления и авторизации',
+    'Основы ReactJS',
+    'Работа с компонентами динамической DOM',
+    'Использование хуков в React',
+    'Основы микросервисной архитектуры',
+    'Разработка классических модулей веб-приложений'
+];
+
+secondSemesterButton.addEventListener('click', () => {
+    practicesTable.innerHTML = secondSemesterPractices.map((practice, index) => `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${practice}</td>
+            <td><input type='checkbox'></td>
+            <td><input type='checkbox'></td>
+        </tr>
+    `).join('');
+});
+
+// --- Student photo handlers ---
+const studentPhoto = document.querySelector('.img-fluid');
+
+const photoEventHandlers = {
+    mouseover: () => {
+        studentPhoto.style.transform = 'scale(1.1)';
+        studentPhoto.style.transition = 'transform 0.3s ease';
+    },
+    mouseout: () => {
+        studentPhoto.style.transform = 'scale(1)';
+    },
+    click: () => {
+        studentPhoto.src = 'prepod.jpg'; // Replace with the favorite teacher's URL
+    },
+    dblclick: () => {
+        alert('Не налегай, у меня не так много любимых преподавателей');
+    }
+};
+
+Object.entries(photoEventHandlers).forEach(([event, handler]) => {
+    studentPhoto.addEventListener(event, handler);
+});
